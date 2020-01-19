@@ -19,6 +19,7 @@
     "Image": true,
     "FileReader": true,
     "Blob": true,
+    "Vudio": true,
     "process": true
   }
 }

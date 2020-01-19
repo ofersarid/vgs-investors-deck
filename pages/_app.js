@@ -9,7 +9,7 @@ import thunkMiddleware from 'redux-thunk';
 import combined from '../combined-reducers';
 import Head from 'next/head';
 import { reactor, device } from '../services';
-import { Card } from '../shared';
+// import { Card } from '../shared';
 
 const makeStore = (initialState, options) => {
   const store = createStore(combined, initialState, composeWithDevTools(applyMiddleware(thunkMiddleware)));
@@ -38,14 +38,15 @@ class MyApp extends App {
             content='width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0'
           />
           <meta httpEquiv="ScreenOrientation" content="autoRotate:disabled" />
+          <script src="https://unpkg.com/vudio@2.1.1/umd/vudio.js" ></script >
         </Head >
         <Component {...pageProps} isServer={isServer} />
-        <Card
-          logo="/images/logo.svg"
-          firstLine="Lorem Ipsum"
-          secondLine="Lorem Ipsum"
-          thirdLine="Lorem Ipsum"
-        />
+        {/*<Card*/}
+        {/*  logo="/images/logo.svg"*/}
+        {/*  firstLine="Lorem Ipsum"*/}
+        {/*  secondLine="Lorem Ipsum"*/}
+        {/*  thirdLine="Lorem Ipsum"*/}
+        {/*/>*/}
       </Provider >
     );
   }

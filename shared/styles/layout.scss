@@ -20,6 +20,8 @@ $contentWidthWideScreen: 35vw;
   width: 100vw;
   box-sizing: border-box;
   overflow: hidden;
+  background: radial-gradient(#305670, #010609);
+  color: $white;
   //-webkit-overflow-scrolling: touch;
 
   .art {
