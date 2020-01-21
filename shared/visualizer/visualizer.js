@@ -2,7 +2,7 @@ import React, { Fragment, PureComponent } from 'react';
 // import cx from 'classnames';
 import autoBind from 'auto-bind';
 // import PropTypes from 'prop-types';
-import Vudio from 'vudio/vudio';
+// import Vudio from 'vudio/vudio';
 import styles from './styles.scss';
 
 class AudioVisualizer extends PureComponent {
@@ -41,12 +41,12 @@ class AudioVisualizer extends PureComponent {
         color: '#51b13f',
         shadowBlur: 5,
         shadowColor: '#afff34',
-        fadeSide: true,
+        fadeSide: false,
         prettify: true,
-        particle: false,
-        maxParticle: 1000,
+        particle: true,
+        maxParticle: 10,
         circleRadius: 128,
-        showProgress: false,
+        showProgress: true,
       },
     });
     this.vudio.dance();

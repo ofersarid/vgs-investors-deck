@@ -38,6 +38,7 @@ class MyApp extends App {
             content='width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0'
           />
           <meta httpEquiv="ScreenOrientation" content="autoRotate:disabled" />
+          <script src="https://unpkg.com/vudio@2.1.1/umd/vudio.js" ></script >
         </Head >
         <Component {...pageProps} isServer={isServer} />
         {/*<Card*/}
