@@ -22,76 +22,15 @@ $contentWidthWideScreen: 35vw;
   overflow: hidden;
   background: radial-gradient(#305670, #010609);
   color: $white;
-  //-webkit-overflow-scrolling: touch;
-
-  .art {
-    margin-top: 50px;
-    height: calc(40% - 50px);
-    width: $artWidthPortrait;
-    background: #E8E8E8;
-    box-sizing: border-box;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-  }
-
-  .content {
-    width: $contentWidthPortrait;
-    height: 60%;
-    padding: 0 10vw;
-    //background: palevioletred;
-    box-sizing: border-box;
-
-    @include orientation('portrait') {
-      @include media('>phone') {
-        width: 580px;
-        padding: 0;
-        margin: 0 auto;
-        max-width: 90vw;
-      }
-    }
-
-    @include orientation('landscape') {
-      height: auto;
-    }
-  }
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
 
   @include orientation('landscape') {
     @include media('>phone') {
-      display: flex;
-      flex-direction: row;
-      align-items: center;
-      justify-content: center;
-
-      .art {
-        height: 100%;
-        margin-top: 0;
-        width: $artWidthTablet;
-      }
-
-      .content {
-        padding: 0;
-        width: $contentWidthTablet;
-      }
-
-      @include media('>tablet') {
-        .art {
-          width: $artWidthDesktop;
-        }
-
-        .content {
-          width: $contentWidthDesktop;
-        }
-      }
 
       @include media('>desktop') {
-        .art {
-          width: $artWidthWideScreen;
-        }
-
-        .content {
-          width: $contentWidthWideScreen;
-        }
       }
     }
   }

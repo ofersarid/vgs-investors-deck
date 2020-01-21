@@ -18,8 +18,18 @@ const Index = ({ router, isServer }) => {
     [styles.comeDown]: !forward
   } : {};
   prevFrame = frame;
+  console.log(router.query.viewer);
+  const chapters = [{
+    id: '123',
+    text: 'What is vascular engineering?',
+    src: '/audio/sample.mp3',
+  }, {
+    id: '234',
+    text: 'Why it matters?',
+    src: '/audio/sample-1.mp3',
+  }];
   return isMobile ? <Mobile animation={animation} forward={forward} frame={frame} />
-    : <Desktop animation={animation} frame={frame} />;
+    : <Desktop chapters={chapters} animation={animation} viewer={router.query.viewer} />;
 };
 
 export default compose(withRouter, connect())(Index);
