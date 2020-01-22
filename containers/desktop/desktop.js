@@ -1,6 +1,6 @@
 import React from 'react';
 import autoBind from 'auto-bind';
-// import cx from 'classnames';
+import cx from 'classnames';
 import { compose } from 'redux';
 import { AudioVisualizer } from '../../shared';
 import styles from './styles.scss';
@@ -25,7 +25,7 @@ class Desktop extends React.PureComponent {
 
   pause() {
     this.setState({
-      play: false,
+      play: false
     });
   }
 
@@ -34,7 +34,7 @@ class Desktop extends React.PureComponent {
     if (src !== chptr.src) {
       this.setState({
         src: undefined,
-        play: false,
+        play: false
       });
     }
     setTimeout(() => {
@@ -50,16 +50,25 @@ class Desktop extends React.PureComponent {
     const { play, src } = this.state;
     return (
       <div className={styles.container} >
-        <div >Desktop Version</div >
-        <h1 >Welcome Mr. {viewer}<br />
-             What would you like to know</h1 >
-        <ul >
-          {chapters.map(chptr => (
-            <li key={chptr.id} onClick={() => this.togglePlayState(chptr)} >{chptr.text}</li >
-          ))}
-        </ul >
-        <div className={styles.visualizer} >
-          {src && <AudioVisualizer src={src} play={play} />}
+        <div className={styles.center} >
+          <h1 >Welcome Mr. {viewer}<br />
+               What would you like to know</h1 >
+          <div className={styles.grid2Col} >
+            <ul className={styles.chapters} >
+              {chapters.map(chptr => (
+                <li
+                  key={chptr.id}
+                  onClick={() => this.togglePlayState(chptr)}
+                  className={cx({ [styles.active]: src === chptr.src })}
+                >
+                  {chptr.text}
+                </li >
+              ))}
+            </ul >
+            <div className={styles.visualizer} >
+              {src && <AudioVisualizer src={src} play={play} />}
+            </div >
+          </div >
         </div >
       </div >
     );
