@@ -39,9 +39,17 @@
     display: inline-flex;
     cursor: pointer;
     transition: 1s $ease;
+    align-items: center;
 
     &.active {
       color: #63dc4f;
+    }
+
+    svg {
+      width: 40px;
+      height: 40px;
+      @extend %fadeIn;
+      //transform: translateY(-0.5px);
     }
   }
 }

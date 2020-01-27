@@ -3,7 +3,10 @@ import autoBind from 'auto-bind';
 import cx from 'classnames';
 import { compose } from 'redux';
 import { AudioVisualizer } from '../../shared';
+import { GA } from '../../services';
 import styles from './styles.scss';
+import { Play } from 'styled-icons/boxicons-regular/Play';
+import { Pause } from 'styled-icons/boxicons-regular/Pause';
 
 class Desktop extends React.PureComponent {
   constructor(props) {
@@ -12,6 +15,16 @@ class Desktop extends React.PureComponent {
     this.state = {
       play: false
     };
+  }
+
+  componentDidMount() {
+    const { viewer } = this.props;
+    if (!window.GA_INITIALIZED) {
+      GA.init();
+      window.GA_INITIALIZED = true;
+    }
+    GA.setViewer(viewer);
+    GA.viewedPage(viewer);
   }
 
   togglePlayState(chptr) {
@@ -24,13 +37,16 @@ class Desktop extends React.PureComponent {
   }
 
   pause() {
+    const { viewer } = this.props;
     this.setState({
       play: false
     });
+    GA.pauseEpisode(viewer);
   }
 
   play(chptr) {
     const { src } = this.state;
+    const { viewer } = this.props;
     if (src !== chptr.src) {
       this.setState({
         src: undefined,
@@ -42,6 +58,7 @@ class Desktop extends React.PureComponent {
         src: chptr.src,
         play: true
       });
+      GA.playEpisode(viewer);
     });
   }
 
@@ -61,7 +78,8 @@ class Desktop extends React.PureComponent {
                   onClick={() => this.togglePlayState(chptr)}
                   className={cx({ [styles.active]: src === chptr.src })}
                 >
-                  {chptr.text}
+                  <span>{chptr.text}</span>
+                  {src === chptr.src ? play ? <Play /> : <Pause /> : null}
                 </li >
               ))}
             </ul >
