@@ -29,7 +29,7 @@ const Index = ({ router, isServer }) => {
     src: '/audio/sample-1.mp3',
   }];
   return isMobile ? <Mobile animation={animation} forward={forward} frame={frame} />
-    : <Desktop chapters={chapters} animation={animation} viewer={router.query.viewer} />;
+    : <Desktop chapters={chapters} animation={animation} viewer={router.query.viewer} userId={router.query.id} />;
 };
 
 export default compose(withRouter, connect())(Index);
