@@ -18,13 +18,13 @@ class Desktop extends React.PureComponent {
   }
 
   componentDidMount() {
-    const { viewer } = this.props;
+    const { userId } = this.props;
     if (!window.GA_INITIALIZED) {
       GA.init();
       window.GA_INITIALIZED = true;
     }
-    GA.setViewer(viewer);
-    GA.viewedPage(viewer);
+    GA.setViewer(userId);
+    GA.viewedPage(userId);
   }
 
   togglePlayState(chptr) {
@@ -37,16 +37,16 @@ class Desktop extends React.PureComponent {
   }
 
   pause() {
-    const { viewer } = this.props;
+    const { userId } = this.props;
     this.setState({
       play: false
     });
-    GA.pauseEpisode(viewer);
+    GA.pauseEpisode(userId);
   }
 
   play(chptr) {
     const { src } = this.state;
-    const { viewer } = this.props;
+    const { userId } = this.props;
     if (src !== chptr.src) {
       this.setState({
         src: undefined,
@@ -58,7 +58,7 @@ class Desktop extends React.PureComponent {
         src: chptr.src,
         play: true
       });
-      GA.playEpisode(viewer);
+      GA.playEpisode(userId);
     });
   }
 

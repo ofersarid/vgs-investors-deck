@@ -31,7 +31,7 @@ class MyApp extends App {
         <Head >
           <meta charSet="utf-8" />
           <link rel="icon" href={`/images/favicon.ico?v=${new Date().getTime()}`} />
-          <title >Sanoculis</title >
+          <title >VGS Investors Deck</title >
           <meta name="description" content="Lorem Ipsum" />
           <meta
             name='viewport'
