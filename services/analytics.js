@@ -27,7 +27,7 @@ const init = () => {
 
 const setViewer = (viewer) => {
   if (viewer) {
-    console.log(`Setting viewer: ${viewer}`);
+    console.log(`Setting ${isDev() ? 'test' : 'investor'} viewer: ${viewer}`);
     ReactGA.set({ userId: camelCase(viewer) });
   }
 };
