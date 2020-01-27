@@ -23,7 +23,7 @@ class Desktop extends React.PureComponent {
       GA.init();
       window.GA_INITIALIZED = true;
     }
-    GA.setViewer(userId);
+    // GA.setViewer(userId);
     GA.viewedPage(userId);
   }
 

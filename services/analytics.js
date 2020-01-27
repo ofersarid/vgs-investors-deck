@@ -7,7 +7,15 @@ const isDev = () => {
 
 const init = () => {
   console.log('GA init');
-  ReactGA.initialize('UA-156693068-1');
+  const urlParams = new URLSearchParams(window.location.search);
+  const id = urlParams.get('id');
+  ReactGA.initialize('UA-156693068-1', {
+    debug: true,
+    titleCase: false,
+    gaOptions: {
+      userId: id
+    }
+  });
 };
 
 // const logPageView = () => {
