@@ -41,7 +41,7 @@ class Desktop extends React.PureComponent {
     this.setState({
       play: false
     });
-    GA.pauseEpisode(userId, chptr.txt);
+    GA.pauseEpisode(userId, chptr.text);
   }
 
   play(chptr) {
@@ -58,7 +58,7 @@ class Desktop extends React.PureComponent {
         src: chptr.src,
         play: true
       });
-      GA.playEpisode(userId, chptr.txt);
+      GA.playEpisode(userId, chptr.text);
     });
   }
 
