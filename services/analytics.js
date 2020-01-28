@@ -45,30 +45,29 @@ const viewedPage = (viewer) => {
     console.log(`Logging viewer: ${viewer}`);
     ReactGA.event({
       category: isDev() ? 'test' : 'investor',
-      action: 'impression',
-      label: 'viewed page',
+      action: 'viewed page',
     });
   }
 };
 
-const pauseEpisode = (viewer) => {
+const pauseEpisode = (viewer, episode) => {
   if (viewer) {
-    console.log(`Logging pause episode by: ${viewer}`);
+    console.log(`Logging pause episode ${episode} by ${viewer}`);
     ReactGA.event({
       category: isDev() ? 'test' : 'investor',
-      action: 'click',
-      label: 'pause episode',
+      action: 'pause episode',
+      label: episode,
     });
   }
 };
 
-const playEpisode = (viewer) => {
+const playEpisode = (viewer, episode) => {
   if (viewer) {
     console.log(`Logging play episode by: ${viewer}`);
     ReactGA.event({
       category: isDev() ? 'test' : 'investor',
-      action: 'click',
-      label: 'play episode',
+      action: 'play episode',
+      label: episode,
     });
   }
 };
@@ -78,8 +77,7 @@ const contactUs = (viewer) => {
     console.log(`Logging contact us by: ${viewer}`);
     ReactGA.event({
       category: isDev() ? 'test' : 'investor',
-      action: 'click',
-      label: 'contact us',
+      action: 'clicked contact us',
     });
   }
 };
@@ -89,8 +87,7 @@ const send = (viewer) => {
     console.log(`Logging send by: ${viewer}`);
     ReactGA.event({
       category: isDev() ? 'test' : 'investor',
-      action: 'click',
-      label: 'send',
+      action: 'clicked on send',
     });
   }
 };
